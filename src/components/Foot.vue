@@ -44,15 +44,7 @@ export default {
     return {
       navConfig,
       curIndex:parseInt(index) || 0,
-      ob:JSON.parse(JSON.stringify(this.obj))  //不建议子组件直接修改来自父组件的传值，因为prop是引用拷贝，建议深复制
     }
-  },
-  created(){
-    setTimeout(()=>{
-      this.obj.age = 18
-      //this.$emit('change',18)  //使用$emit来通知父组件更新数据
-      bus.$emit('change',18)
-    },5000)
   },
   methods:{
     changeIndex(list,index){
